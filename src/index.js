@@ -5,7 +5,7 @@ import Login from "./pages/Login"
 import Users from "./pages/Users"
 import Groups from "./pages/Groups"
 import Configs from "./pages/Configs"
-//import './index.css';
+import './index.css';
 //import App from './App';
 //import reportWebVitals from './reportWebVitals';
 
@@ -17,9 +17,9 @@ const treeApp = [
 ]
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Routes>
-      { treeApp.map(t => <Route { ...t }/>) }
+      { treeApp.map(t => <Route { ...t } key={t.path} />) }
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')
